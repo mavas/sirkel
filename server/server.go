@@ -8,7 +8,6 @@ import (
     "strings"
     "strconv"
     "math/rand"
-    "os"
     "time"
 )
 
@@ -37,14 +36,9 @@ func handleConnection(c net.Conn) {
 
 func main() {
     fmt.Printf("Starting sirkel server on port 8009")
-    arguments := os.Args
-    if len(arguments) == 1 {
-        fmt.Println("Please provide a port number!")
-        return
-    }
 
-    PORT := ":" + arguments[1]
-    l, err := net.Listen("tcp4", PORT)
+    // Listen on a port.
+    l, err := net.Listen("tcp4", "8009")
     if err != nil {
         fmt.Println(err)
         return
@@ -52,6 +46,7 @@ func main() {
     defer l.Close()
     rand.Seed(time.Now().Unix())
 
+    // Accept connections.
     for {
         c, err := l.Accept()
         if err != nil {
