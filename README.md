@@ -10,4 +10,4 @@ sirkel is best-efforts attempt to simulate playing this game on a computer over 
 
 The protocol, for now, uses text over TCP.  The client sends "START" upon connection, and the server sets up a "game", and starts playing the game with the participants.
 
-The server continuously keeps track of what's called a "pace", for each game, and this gets updated frequently, according to the perceived pace of the participants.  If the participants play fast, the server expects things to get faster, and tells the participants.
+The server continuously keeps track of what's called a "pace", for each game, and this gets updated frequently, according to the perceived pace of the participants.  If the participants play fast, the server expects things to get faster, and informs the participants.
